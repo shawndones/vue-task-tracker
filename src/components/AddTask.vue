@@ -43,7 +43,7 @@ export default {
                 alert('please add a task');
                 return
             }
-            console.log(this.day)
+            
             const newTask = {
                 // id: Math.floor(Math.random()*10000), // <- You would do this for id in real life as you might get duplicate ids
                 text: this.text,

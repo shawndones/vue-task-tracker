@@ -3,6 +3,7 @@
         <Task 
             @toggle-reminder="$emit('toggle-reminder', task.id)"
             @delete-task="$emit('delete-task', task.id)" 
+            @update-task="$emit('update-task', updateTask);"
             :task="task" 
         />
     </div>        
@@ -21,6 +22,6 @@ export default {
     },
 
     // array of events you want to emit
-    emits: ['delete-task', 'toggle-reminder']
+    emits: ['delete-task', 'toggle-reminder', 'update-task']
 }
 </script> 

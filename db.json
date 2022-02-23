@@ -2,15 +2,21 @@
   "tasks": [
     {
       "id": "3",
-      "text": "TKD Class",
+      "text": "asdf wef ",
       "day": "March 4th at 6:30pm",
       "reminder": true
     },
     {
       "text": "sdg",
       "day": "dfsg",
-      "reminder": true,
+      "reminder": false,
       "id": "XP7UtTa"
+    },
+    {
+      "text": "asdfwefawefawefawe aSDa sdqW dqw. QWDf awef",
+      "day": "asdsfasdfawevweaw",
+      "reminder": true,
+      "id": "K9FFt04"
     }
   ]
 }
