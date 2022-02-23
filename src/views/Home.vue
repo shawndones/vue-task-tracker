@@ -44,7 +44,7 @@
 
             async updateTask(updatedTask) {
                 const taskToUpdate = await this.fetchTask(updatedTask.id)
-                const updateTask = {...taskToUpdate, text: updatedTask.taskTitle}
+                const updateTask = {...taskToUpdate, text: updatedTask.taskTitle, day: updatedTask.taskDate}
 
                     const res = await fetch(`api/tasks/${updatedTask.id}`, {
                     method: 'PUT',
@@ -61,7 +61,7 @@
                 // for each task if the id matches the id of selected task then change text, or date, or reminder
                     (task) => task.id === updatedTask.id 
                 // return the other task's values with the edited task title and/or date value
-                    ? { ...task, text: updatedTask.taskTitle } 
+                    ? { ...task, text: updatedTask.taskTitle, day: updatedTask.taskDate } 
                     : task
 
                 )

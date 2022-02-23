@@ -3,10 +3,15 @@
         <input 
           v-if="showEditTask"
           v-model="taskTitle"
-          @blur="blur" 
+          @blur="blurTitle" 
           type="text" />
         <h3 v-else>{{ task.text }}</h3>
-        <p>{{ task.day }} </p>
+         <input 
+          v-if="showEditTask"
+          v-model="taskDate"
+          @blur="blurDate" 
+          type="text" />
+        <p v-else>{{ task.day }} </p>
         <span class="options">
           <i @click="$emit('delete-task', task.id)" class="fas fa-times"></i>
           <i @click="showEditTask = !showEditTask" class="fas fa-edit"></i>
@@ -23,21 +28,38 @@ export default {
       return {
         showEditTask: false,
         taskTitle: this.task.text,
-        taskDay: this.task.day
+        taskDate: this.task.day
       }
     },
     methods: {
-      blur() {
+      blurTitle() {
          if(!this.taskTitle) {
               alert('please add a task');
               return
-          } else if (!this.taskDay) {
+          } else if (!this.taskDate) {
             alert('please add a date');
               return
           }
         const updateTask = {
           id: this.task.id,
-          taskTitle: this.taskTitle
+          taskTitle: this.taskTitle,
+          taskDate: this.taskDate
+        }
+        this.showEditTask = !this.showEditTask;
+        this.$parent.$emit('update-task', updateTask);
+      },
+      blurDate() {
+         if(!this.taskDate) {
+              alert('please add a task');
+              return
+          } else if (!this.taskDate) {
+            alert('please add a date');
+              return
+          }
+        const updateTask = {
+          id: this.task.id,
+          taskTitle: this.taskTitle,
+          taskDate: this.taskDate
         }
         this.showEditTask = !this.showEditTask;
         this.$parent.$emit('update-task', updateTask);
